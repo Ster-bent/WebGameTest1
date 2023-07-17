@@ -17,16 +17,16 @@ window.onload = function() {
         function arrowKey(e) {
             e = e || window.event;
             if (e.keyCode == '39') {
-               x = x + moveBy;
+               if (x+100 < 600) { x = x + moveBy;}
             }
             else if (e.keyCode == '37') {
-               x = x - moveBy;
+               if (x > 0) {x = x - moveBy;}
             }
             else if (e.keyCode == '38') {
-               y = y - moveBy;
+               if (y > 0) {y = y - moveBy;}
             }
             else if (e.keyCode == '40') {
-               y = y + moveBy;
+               if (y +100 < 400) {y = y + moveBy;}
             }
         }
         window.requestAnimationFrame(game);
