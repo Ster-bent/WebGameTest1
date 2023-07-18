@@ -29,7 +29,10 @@ window.onload = function() {
         context.rect(wallx, wally, wallW, wallH);
         context.fillStyle= 'pink';
         context.fill()
-        
+
+        //TODO Create Rigid Body Mesh For Objects!
+        //! Player Object Stops when in contact FIX
+
         function rigidBody(){
             PR = playerW + playerx;
             PL = playerx;
