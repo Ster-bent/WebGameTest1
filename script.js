@@ -31,28 +31,40 @@ window.onload = function() {
         context.fill()
         
         function rigidBody(){
-            return !(
-                ((playery + playerH) < (wally)) ||
-                (playery > (wally + wallH)) ||
-                ((playerx + playerW) < playerx) ||
-                (playerx > (wallx + wallH))
-            );
+            PR = playerW + playerx;
+            PL = playerx;
+            PB = playery + playerH;
+            PT = playery;
+
+            WR = wallW + wallx;
+            WL = wallx;
+            WB = wally + wallH;
+            WT = wally;
+
+            if (PR > WL && PT > WT && PB < WB) {
+                var Collide = 1;
+                return Collide;
+            }
+            else {
+                var Collide = 0;
+                return Collide;
+            }
         }
 
         document.onkeydown = arrowKey;
         function arrowKey(e) {
             e = e || window.event;
             if (e.keyCode == '39') {
-               if (playerx+100 < 600 && rigidBody() == !false) { playerx = playerx + moveBy;}
+               if (playerx+100 < 600) { playerx = playerx + moveBy;}
             }
             else if (e.keyCode == '37') {
-               if (playerx > 0 && rigidBody() == !false) {playerx = playerx - moveBy;}
+               if (playerx > 0) {playerx = playerx - moveBy;}
             }
             else if (e.keyCode == '38') {
-               if (playery > 0 && rigidBody() == !false) {playery = playery - moveBy;}
+               if (playery > 0) {playery = playery - moveBy;}
             }
             else if (e.keyCode == '40') {
-               if (playery +100 < 400 && rigidBody() == !false) {playery = playery + moveBy;}
+               if (playery +100 < 400) {playery = playery + moveBy;}
             }
         }
         window.requestAnimationFrame(game);
